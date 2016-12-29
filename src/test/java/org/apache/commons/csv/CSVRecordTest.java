@@ -177,8 +177,8 @@ public class CSVRecordTest {
        assertTrue("Map is empty.", map.isEmpty());
     }
 
-    @Test
-    public void validateMap(final Map<String, String> map, final boolean allowsNulls) {
+    
+    private void validateMap(final Map<String, String> map, final boolean allowsNulls) {
         assertTrue(map.containsKey("first"));
         assertTrue(map.containsKey("second"));
         assertTrue(map.containsKey("third"));
