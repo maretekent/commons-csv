@@ -142,8 +142,11 @@ public class CSVRecordTest {
 
     @Test
     public void testRemoveAndAddColumns() throws IOException {
+    	System.out.println("testRemoveAndAddColumns...");
         // do:
+    		System.out.println("before...");
         final CSVPrinter printer = new CSVPrinter(new StringBuilder(), CSVFormat.DEFAULT);
+        	System.out.println("after...");
         final Map<String, String> map = recordWithHeader.toMap();
         map.remove("OldColumn");
         map.put("ZColumn", "NewValue");
@@ -152,7 +155,7 @@ public class CSVRecordTest {
         Collections.sort(list);
         printer.printRecord(list);
         Assert.assertEquals("A,B,C,NewValue" + CSVFormat.DEFAULT.getRecordSeparator(), printer.getOut().toString());
-        printer.close();
+        printer.close();    	
     }
 
     @Test
@@ -173,7 +176,7 @@ public class CSVRecordTest {
        final CSVParser parser =  CSVParser.parse("a,b", CSVFormat.newFormat(','));
        final CSVRecord shortRec = parser.iterator().next();
        final Map<String, String> map = shortRec.toMap();
-       assertNotNull("Map is not null.", map);
+       assertNotNull("Map/34  is not null.", map);
        assertTrue("Map is empty.", map.isEmpty());
     }
 
